@@ -1,0 +1,25 @@
+PYTHON 2
+DANIEL CASTILLO
+CERTIFICADO PYTHON
+INSTITUTE PCED30
+
+-Bases de Python
+-Dataframes Pandas + Graficos
+
+Crear Cuenta de GITHUB CHECK
+(Santiagomo89, santiagocartagenero@gmail.com, mazarron89)
+
+Descargar Python (ver. 3.14.3) CHECK
+Descargar Visual Studio Code CHECK
+
+Comprobar las extensiones de Visual Studio
+-View -> Extensions
+-Busca por python
+-Comprueba Python Debugger, Python, Pylance y Python Environments CHECK
+(hacer en casa tmb)
+-Busca por jupyter
+-Comprueba las extensiones de jupyter CHECK
+
+Para escribir código necesitamos un fichero. En Python tenemos, por lo general en producción, .py, cuyo código se ejecuta de manera secuencial. En este curso se trabaja con ficheros jupyter, que permiten hacer ejecuciones de código por celdas o bloques (.ipynb).
+
+Si tienes más de una version de python instalada, saldrá Select Kernel a la derecha para elegir cuando abrimos un nuevo fichero. En este caso, elegimos python y el 3.14.3
