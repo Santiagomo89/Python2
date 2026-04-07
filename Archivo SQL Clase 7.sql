@@ -11,33 +11,33 @@ go
 Select Destinatario, FechaPedido from Pedidos;
 -- Alias de campo
 Select Destinatario as Cliente, FechaPedido from Pedidos;
--- Una funciÛn en el sujeto
-Select Destinatario as Cliente, YEAR(FechaPedido) as AÒo
+-- Una funci√≥n en el sujeto
+Select Destinatario as Cliente, YEAR(FechaPedido) as A√±o
 from Pedidos;
--- OrdenaciÛn con order by (por defecto es ASC)
-Select Destinatario as Cliente, YEAR(FechaPedido) as AÒo
+-- Ordenaci√≥n con order by (por defecto es ASC)
+Select Destinatario as Cliente, YEAR(FechaPedido) as A√±o
 from Pedidos order by Destinatario;
 -- Al reves
-Select Destinatario as Cliente, YEAR(FechaPedido) as AÒo
+Select Destinatario as Cliente, YEAR(FechaPedido) as A√±o
 from Pedidos order by Destinatario desc;
 -- Se puede ordenar por mas de un campo
-Select * from Pedidos order by PaÌsDestinatario, 
+Select * from Pedidos order by Pa√≠sDestinatario, 
 CiudadDestinatario;
-Select * from Pedidos order by PaÌsDestinatario asc, 
+Select * from Pedidos order by Pa√≠sDestinatario asc, 
 CiudadDestinatario desc;
 -- Ver los primeros n registros, usaremos el top
 Select top(10) * from Pedidos;
-Select top(10) * from Pedidos order by PaÌsDestinatario;
+Select top(10) * from Pedidos order by Pa√≠sDestinatario;
 -- En el sujeto puedo concatenar campos (con el +) e 
 -- incluso texto de manera manual
-Select CiudadDestinatario+' ('+PaÌsDestinatario+')' as
+Select CiudadDestinatario+' ('+Pa√≠sDestinatario+')' as
 Ciudad_Pais from Pedidos;
 -- Truco primero poner la tabla en el from, despues
 -- regresar al sujeto y me muestra los campos
 Select CiudadDestinatario from Pedidos
 -- Si una tabla o un campo tiene espacios en blanco
--- tendre problemas, soluciÛn poner entre corchetes
--- OperaciÛn aritmetica en el sujeto
+-- tendre problemas, soluci√≥n poner entre corchetes
+-- Operaci√≥n aritmetica en el sujeto
 Select 
 	Cantidad,
 	PrecioUnidad,
@@ -51,37 +51,37 @@ Select
 from
 	Pedidos
 where
-	PaÌsDestinatario='Alemania';
--- CÛmo filtrar datos de dos paÌses
+	Pa√≠sDestinatario='Alemania';
+-- C√≥mo filtrar datos de dos pa√≠ses
 Select
 	*
 from
 	Pedidos
 where
-	PaÌsDestinatario='Alemania'
+	Pa√≠sDestinatario='Alemania'
 or
-    PaÌsDestinatario='Argentina';
--- Seleccionar los registros de Argentina y del aÒo 1997
+    Pa√≠sDestinatario='Argentina';
+-- Seleccionar los registros de Argentina y del a√±o 1997
 Select
 	*
 from
 	Pedidos
 where
-	PaÌsDestinatario='Argentina'
+	Pa√≠sDestinatario='Argentina'
 and
     YEAR(FechaPedido)=1997
 order by IdPedido;
 -- FUNCIONES DE AGREGADO (SUM, AVERAGE, MAX, MIN, COUNT)
--- UNA FUNCI”N DE AGREGADO NECESITA SIEMPRE UNA CL¡USULA GROUP BY DONDE PONER LAS DIMENSIONES
--- EXCEPTO EN EL CASO DE COUNT(*) = N⁄MERO DE FILAS O REFGISTROS
-Select 'El n˙mero de filas es ', Count(*) from Pedidos;
--- Vamos a sumar las unidades por paÌs
---Necesitamos combinar dos tablas, lo que se puede hacer con JOIN) implÌcito sencillo para INNER JOIN
-Select Pedidos.PaÌsDestinatario, SUM
+-- UNA FUNCI√ìN DE AGREGADO NECESITA SIEMPRE UNA CL√ÅUSULA GROUP BY DONDE PONER LAS DIMENSIONES
+-- EXCEPTO EN EL CASO DE COUNT(*) = N√öMERO DE FILAS O REFGISTROS
+Select 'El n√∫mero de filas es ', Count(*) from Pedidos;
+-- Vamos a sumar las unidades por pa√≠s
+--Necesitamos combinar dos tablas, lo que se puede hacer con JOIN) impl√≠cito sencillo para INNER JOIN
+Select Pedidos.Pa√≠sDestinatario, SUM
    (Detalles_de_pedidos.Cantidad) as Total_Cantidad
 from 
     Detalles_de_pedidos, Pedidos
 where
     Pedidos.IdPedido = Detalles_de_pedidos.IdPedido
 group by
-    Pedidos.PaÌsDestinatario;
+    Pedidos.Pa√≠sDestinatario;
